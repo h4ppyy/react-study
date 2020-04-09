@@ -1,13 +1,15 @@
 import React from 'react';
 
-class Contents extends React.Component {
-  render() {
-    return (
-        <>
-            <div class="dev">Contents</div>
-        </>
-    )
-  }
+const Contents = (props) => {
+  return (
+    <>
+      <div class="dev">
+        {props.count}
+        <button onClick={props.onPlusCount} type="button">Count up!</button>
+        <button onClick={props.onMinusCount} type="button">Count down!</button>
+      </div>
+    </>
+  )
 }
 
 export default Contents;
