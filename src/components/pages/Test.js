@@ -1,22 +1,27 @@
 import React, { useState, useEffect } from 'react'
+import {useSelector, useDispatch} from 'react-redux'
+
+import allActions from '../actions'
 
 import Contents from '../common/Contents'
 
 const Test = (props) => {
 
-  const [count, setCount] = useState(0);
+  const dispatch = useDispatch()
+
+  const counter = useSelector(state => state.counter)
 
   const handlePlusCount = () => {
-    setCount(count + 1)
+    dispatch(allActions.counterActions.increment())
   }
   const handleMinusCount = () => {
-    setCount(count - 1)
+    dispatch(allActions.counterActions.decrement())
   }
 
   return (
     <>
       <Contents 
-        count={count}
+        counter={counter}
         onPlusCount={handlePlusCount}
         onMinusCount={handleMinusCount}
       />
